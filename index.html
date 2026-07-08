@@ -1,213 +1,193 @@
+
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Central de Atendimento</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Central de Atendimento</title>
 
-  <style>
-    :root{
-      --primary:#00d974;   /* azul principal */
-      --primary2:#00d974;  /* azul escuro */
-      --text:#0f172a;
-      --muted:#6b7280;
-      --shadow:0 18px 50px rgba(2,6,23,.18);
-    }
+<style>
+:root{
+  --primary:#16b45f;
+  --primary2:#0f9b4c;
+  --text:#0f172a;
+  --muted:#6b7280;
+  --shadow:0 18px 50px rgba(2,6,23,.18);
+}
 
-    *{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+*{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
 
-    body{
-      margin:0;
-      background:linear-gradient(180deg,#eef5ff,#ffffff);
-      color:var(--text);
-    }
+body{
+  margin:0;
+  background:linear-gradient(180deg,#f0fdf4,#ffffff);
+  color:var(--text);
+}
 
-    .container{
-      max-width:1100px;
-      margin:auto;
-      padding:40px 20px;
-    }
+.container{max-width:1100px;margin:auto;padding:40px 20px}
 
-    /* HEADER */
-    .header{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      margin-bottom:40px;
-    }
+.header{display:flex;align-items:center;gap:14px;margin-bottom:40px}
 
-    .header h1{margin:0;font-size:22px}
-    .header span{font-size:13px;color:var(--muted)}
+.logo{
+  width:46px;height:46px;border-radius:14px;
+  background:#fff;border:1px solid rgba(0,0,0,.1);
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  object-fit:contain;
+}
 
-    /* HERO */
-    .hero{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:24px;
-      align-items:center;
-    }
+.header h1{margin:0;font-size:22px}
+.header span{font-size:13px;color:var(--muted)}
 
-    .hero h2{font-size:34px;margin:0}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
 
-    .hero p{
-      margin-top:12px;
-      line-height:1.5;
-      color:rgba(0,0,0,.7)
-    }
+.hero h2{font-size:34px;margin:0}
+.hero p{margin-top:12px;line-height:1.5;color:rgba(0,0,0,.7)}
 
-    .btn{
-      display:inline-block;
-      margin-top:18px;
-      padding:14px 24px;
-      border-radius:999px;
-      background:linear-gradient(135deg,var(--primary2),var(--primary));
-      color:#fff;
-      font-weight:800;
-      text-decoration:none;
-      box-shadow:0 18px 40px rgba(10, 255, 132, 0.15);
-      transition:.3s;
-    }
+.btn{
+  display:inline-block;
+  margin-top:18px;
+  padding:14px 24px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--primary2),var(--primary));
+  color:#fff;
+  font-weight:800;
+  text-decoration:none;
+  box-shadow:0 18px 40px rgba(22,180,95,.35);
+}
 
-    .btn:hover{
-      transform:scale(1.05);
-    }
+.card{
+  background:#fff;
+  padding:18px;
+  border-radius:22px;
+  box-shadow:var(--shadow);
+}
 
-    /* SERVIÇOS */
-    .card{
-      background:#fff;
-      padding:18px;
-      border-radius:22px;
-      box-shadow:var(--shadow);
-    }
+.service{
+  display:block;
+  padding:14px;
+  margin-bottom:10px;
+  border-radius:16px;
+  background:rgba(22,180,95,.08);
+  border:1px solid rgba(22,180,95,.18);
+  font-weight:800;
+  text-decoration:none;
+  color:var(--text);
+}
 
-    .service{
-      display:block;
-      padding:14px;
-      margin-bottom:10px;
-      border-radius:16px;
-      background:rgba(10,132,255,.08);
-      border:1px solid rgba(10, 255, 132, 0.15);
-      font-weight:800;
-      text-decoration:none;
-      color:var(--text);
-      transition:.2s;
-    }
+.service:hover{
+  background:rgba(22,180,95,.12);
+}
 
-    .service:hover{
-      background:rgba(10, 255, 132, 0.15);
-    }
+.service span{
+  float:right;
+  color:var(--primary2);
+}
 
-    .service span{
-      float:right;
-      color:var(--primary2);
-    }
+.split{
+  margin-top:80px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+  align-items:center;
+}
 
-    /* SOLUÇÕES */
-    .split{
-      margin-top:80px;
-      display:block;
-      text-align:left;
-    }
+.split h3{font-size:28px;margin:0}
+.split h4{margin-top:10px;font-size:18px}
+.split p{margin-top:10px;line-height:1.6;color:var(--muted)}
 
-    .split h3{font-size:28px;margin:0}
-    .split h4{margin-top:10px;font-size:18px}
+.image{
+  height:320px;
+  border-radius:22px;
+  background:url("https://i.imgur.com/Prh9fyG.png") center/cover no-repeat;
+  box-shadow:var(--shadow);
+}
 
-    .split p{
-      margin-top:10px;
-      line-height:1.6;
-      color:var(--muted)
-    }
+.values{
+  margin-top:90px;
+  background:#0b1220;
+  color:#fff;
+  padding:60px 20px;
+}
 
-    /* VALORES */
-    .values{
-      margin-top:90px;
-      background:linear-gradient(135deg,#0057d9,#0a84ff);
-      color:#fff;
-      padding:60px 20px;
-    }
+.values h3{text-align:center;font-size:28px;margin:0}
 
-    .values h3{
-      text-align:center;
-      font-size:28px;
-      margin:0;
-    }
+.grid{
+  max-width:1100px;
+  margin:40px auto 0;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
 
-    .grid{
-      max-width:1100px;
-      margin:40px auto 0;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
+.box{
+  background:rgba(255,255,255,.06);
+  border-radius:18px;
+  padding:20px;
+}
 
-    .box{
-      background:rgba(255,255,255,.10);
-      border-radius:18px;
-      padding:20px;
-    }
+.box strong{font-size:18px}
+.box p{margin-top:10px;color:rgba(255,255,255,.75);line-height:1.6}
 
-    .box strong{font-size:18px}
+footer{
+  background:#fff;
+  border-top:1px solid rgba(0,0,0,.08);
+  padding:20px 0;
+  text-align:center;
+  color:#6b7280;
+}
 
-    .box p{
-      margin-top:10px;
-      color:rgba(255,255,255,.9);
-      line-height:1.6;
-    }
-
-    footer{
-      background:#fff;
-      border-top:1px solid rgba(0,0,0,.08);
-      padding:20px 0;
-      text-align:center;
-      color:#6b7280;
-    }
-
-    @media(max-width:900px){
-      .hero,.grid{grid-template-columns:1fr}
-      .hero h2{font-size:28px}
-    }
-
-  </style>
+@media(max-width:900px){
+  .hero,.split,.grid{grid-template-columns:1fr}
+  .hero h2{font-size:28px}
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<script>
+  const WHATSAPP_ATENDIMENTO = "5517936285129";
+  const WHATSAPP_2VIA       = "5517936285129";
+  const WHATSAPP_SUPORTE    = "5517936285129";
+  const WHATSAPP_OUTROS     = "5517936285129";
+</script>
 
-    <div class="header">
-      <div>
-        <h1>Central de Atendimento</h1>
-        <span>Serviços e suporte via WhatsApp</span>
-      </div>
+<div class="container">
+  <div class="header">
+    <img src="https://i.imgur.com/uis75U0.jpeg" class="logo" alt="Logo">
+    <div>
+      <h1>Central de Atendimento</h1>
+      <span>Serviços e suporte via WhatsApp</span>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div>
+      <h2>Solicite Atendimento</h2>
+      <p>Selecione o serviço desejado e inicie o atendimento seguro pelo WhatsApp.</p>
+
+      <a class="btn" id="btnAtendimento" href="#">
+        Iniciar Atendimento Seguro
+      </a>
     </div>
 
-    <div class="hero">
-      <div>
-        <h2>Solicite Atendimento</h2>
-        <p>Selecione o serviço desejado e inicie o atendimento seguro pelo WhatsApp.</p>
+    <div class="card">
+      <a class="service" id="svc2Via" href="#">
+        2ª Via de Boleto <span>Acessar</span>
+      </a>
 
-        <a class="btn" id="btnAtendimento" href="#" target="_blank">
-          Iniciar Atendimento Seguro
-        </a>
-      </div>
+      <a class="service" id="svcSuporte" href="#">
+        Suporte Técnico <span>Acessar</span>
+      </a>
 
-      <div class="card">
-        <a class="service" id="svc2Via" href="#" target="_blank">
-          2ª Via <span>Acessar</span>
-        </a>
-
-        <a class="service" id="svcSuporte" href="#" target="_blank">
-          Suporte Técnico <span>Acessar</span>
-        </a>
-
-        <a class="service" id="svcOutros" href="#" target="_blank">
-          Outros Assuntos <span>Acessar</span>
-        </a>
-      </div>
+      <a class="service" id="svcOutros" href="#">
+        Outros Assuntos <span>Acessar</span>
+      </a>
     </div>
+  </div>
 
-    <div class="split">
-      <h3>Soluções na palma da sua mão</h3>
+  <div class="split">
+    <div>
+      <h3>Soluções na palma<br>da sua mão</h3>
       <h4>Facilite seu atendimento</h4>
 
       <p>Tenha um fluxo simples, rápido e seguro para solicitar suporte e serviços.</p>
@@ -218,50 +198,37 @@
       </p>
     </div>
 
+    <div class="image"></div>
   </div>
+</div>
 
-  <div class="values">
-    <h3>Compromissos</h3>
-
-    <div class="grid">
-      <div class="box">
-        <strong>01 ✓ Transparência</strong>
-        <p>Atendimento claro, direto e confiável.</p>
-      </div>
-
-      <div class="box">
-        <strong>02 ✓ Seriedade</strong>
-        <p>Compromisso com qualidade e agilidade.</p>
-      </div>
-
-      <div class="box">
-        <strong>03 ✓ Ética</strong>
-        <p>Respeito total ao cliente e seus dados.</p>
-      </div>
-    </div>
+<div class="values">
+  <h3>Compromissos</h3>
+  <div class="grid">
+    <div class="box"><strong>01 ✓ Transparência</strong><p>Nosso compromisso com a transparência cria confiança.</p></div>
+    <div class="box"><strong>02 ✓ Seriedade</strong><p>Relações sólidas baseadas em integridade.</p></div>
+    <div class="box"><strong>03 ✓ Ética</strong><p>Atuação ética e responsável.</p></div>
   </div>
+</div>
 
-  <footer>
-    © <span id="y"></span> Central de Atendimento
-  </footer>
+<footer>
+© <span id="y"></span> Central de Atendimento • Todos os direitos reservados
+</footer>
 
-  <script>
-    const WHATSAPP_NUMERO = "5511960292425";
+<script>
+  function waLink(numero, servico){
+    const msg = "Olá! Preciso de atendimento sobre: " + servico;
+    return "https://wa.me/" + numero + "?text=" + encodeURIComponent(msg);
+  }
 
-    function linkWhats(service){
-      const msg = "Olá! Preciso de atendimento sobre: " + service;
-      return "https://wa.me/" + WHATSAPP_NUMERO + "?text=" + encodeURIComponent(msg);
-    }
+  document.getElementById("btnAtendimento").href = "https://wa.me/" + WHATSAPP_ATENDIMENTO;
 
-    document.getElementById("btnAtendimento").href =
-      "https://wa.me/" + WHATSAPP_NUMERO;
+  document.getElementById("svc2Via").href    = waLink(WHATSAPP_2VIA, "2ª Via");
+  document.getElementById("svcSuporte").href = waLink(WHATSAPP_SUPORTE, "Suporte Técnico");
+  document.getElementById("svcOutros").href  = waLink(WHATSAPP_OUTROS, "Outros Assuntos");
 
-    document.getElementById("svc2Via").href = linkWhats("2ª Via");
-    document.getElementById("svcSuporte").href = linkWhats("Suporte Técnico");
-    document.getElementById("svcOutros").href = linkWhats("Outros Assuntos");
-
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
